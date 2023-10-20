@@ -14,6 +14,20 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-BerbagiDarah-BerbagiDarahTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BerbagiDarah-BerbagiDarahTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EA6666661A374E259072BD05 /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D9BA4ECE8F548D8B6A5ADDC /* PlusJakartaSans-Bold.ttf */; };
+		9724797FDC494395B24E36B6 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 724DBE47773A432EA24A1B96 /* PlusJakartaSans-ExtraBold.ttf */; };
+		1EE9DC4B97774A3D875E78EE /* PlusJakartaSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54A7CDAB398D438C95FA9DC4 /* PlusJakartaSans-ExtraLight.ttf */; };
+		340512B05B9A4F59916095BD /* PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A3821F23694BE9B72325E0 /* PlusJakartaSans-Light.ttf */; };
+		09E62C53A1864D13838E5696 /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC5D02864E264E23B88EBB28 /* PlusJakartaSans-Medium.ttf */; };
+		EF9315A80BF943948B7E003B /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2786683A5DFD4CD1BAC13DA9 /* PlusJakartaSans-Regular.ttf */; };
+		40DB09E1BF8647799DFAC94F /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2B47F3F9862499EB38D172A /* PlusJakartaSans-SemiBold.ttf */; };
+		3EFEFAA18EAE4935BA723371 /* ._PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D851B9AEABD34374B4E2331E /* ._PlusJakartaSans-Bold.ttf */; };
+		08B51AED71E94D859B490765 /* ._PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00E8ECE0FAB049F89A6C578B /* ._PlusJakartaSans-ExtraBold.ttf */; };
+		5643C102AFA14AC89C40BED2 /* ._PlusJakartaSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FE96A1301CA44F2B6D3EA96 /* ._PlusJakartaSans-ExtraLight.ttf */; };
+		3B8D74D3A22641AE9D3915E5 /* ._PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 516663D873F24D7293B0957F /* ._PlusJakartaSans-Light.ttf */; };
+		05530F4292604D258A00CC72 /* ._PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F9049133BE64372B2BAA1CA /* ._PlusJakartaSans-Medium.ttf */; };
+		1E9B49D0D7EA4D1AAF4661BA /* ._PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE9FF577EC44916A16D0A5B /* ._PlusJakartaSans-Regular.ttf */; };
+		ADB60B7E6A9F45D497116EDC /* ._PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD38A13144D246739A6A037A /* ._PlusJakartaSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +58,20 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BerbagiDarah/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-BerbagiDarah-BerbagiDarahTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerbagiDarah-BerbagiDarahTests.release.xcconfig"; path = "Target Support Files/Pods-BerbagiDarah-BerbagiDarahTests/Pods-BerbagiDarah-BerbagiDarahTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		8D9BA4ECE8F548D8B6A5ADDC /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Bold.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		724DBE47773A432EA24A1B96 /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-ExtraBold.ttf"; path = "../src/assets/fonts/PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		54A7CDAB398D438C95FA9DC4 /* PlusJakartaSans-ExtraLight.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-ExtraLight.ttf"; path = "../src/assets/fonts/PlusJakartaSans-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		75A3821F23694BE9B72325E0 /* PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Light.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AC5D02864E264E23B88EBB28 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Medium.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2786683A5DFD4CD1BAC13DA9 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Regular.ttf"; path = "../src/assets/fonts/PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C2B47F3F9862499EB38D172A /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-SemiBold.ttf"; path = "../src/assets/fonts/PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D851B9AEABD34374B4E2331E /* ._PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-Bold.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		00E8ECE0FAB049F89A6C578B /* ._PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-ExtraBold.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3FE96A1301CA44F2B6D3EA96 /* ._PlusJakartaSans-ExtraLight.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-ExtraLight.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		516663D873F24D7293B0957F /* ._PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-Light.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6F9049133BE64372B2BAA1CA /* ._PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-Medium.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9DE9FF577EC44916A16D0A5B /* ._PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-Regular.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD38A13144D246739A6A037A /* ._PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "._PlusJakartaSans-SemiBold.ttf"; path = "../src/assets/fonts/__MACOSX/._PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +150,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				D93A6CBA12544604A1035D92 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +176,28 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		D93A6CBA12544604A1035D92 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				8D9BA4ECE8F548D8B6A5ADDC /* PlusJakartaSans-Bold.ttf */,
+				724DBE47773A432EA24A1B96 /* PlusJakartaSans-ExtraBold.ttf */,
+				54A7CDAB398D438C95FA9DC4 /* PlusJakartaSans-ExtraLight.ttf */,
+				75A3821F23694BE9B72325E0 /* PlusJakartaSans-Light.ttf */,
+				AC5D02864E264E23B88EBB28 /* PlusJakartaSans-Medium.ttf */,
+				2786683A5DFD4CD1BAC13DA9 /* PlusJakartaSans-Regular.ttf */,
+				C2B47F3F9862499EB38D172A /* PlusJakartaSans-SemiBold.ttf */,
+				D851B9AEABD34374B4E2331E /* ._PlusJakartaSans-Bold.ttf */,
+				00E8ECE0FAB049F89A6C578B /* ._PlusJakartaSans-ExtraBold.ttf */,
+				3FE96A1301CA44F2B6D3EA96 /* ._PlusJakartaSans-ExtraLight.ttf */,
+				516663D873F24D7293B0957F /* ._PlusJakartaSans-Light.ttf */,
+				6F9049133BE64372B2BAA1CA /* ._PlusJakartaSans-Medium.ttf */,
+				9DE9FF577EC44916A16D0A5B /* ._PlusJakartaSans-Regular.ttf */,
+				AD38A13144D246739A6A037A /* ._PlusJakartaSans-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +295,20 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				EA6666661A374E259072BD05 /* PlusJakartaSans-Bold.ttf in Resources */,
+				9724797FDC494395B24E36B6 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
+				1EE9DC4B97774A3D875E78EE /* PlusJakartaSans-ExtraLight.ttf in Resources */,
+				340512B05B9A4F59916095BD /* PlusJakartaSans-Light.ttf in Resources */,
+				09E62C53A1864D13838E5696 /* PlusJakartaSans-Medium.ttf in Resources */,
+				EF9315A80BF943948B7E003B /* PlusJakartaSans-Regular.ttf in Resources */,
+				40DB09E1BF8647799DFAC94F /* PlusJakartaSans-SemiBold.ttf in Resources */,
+				3EFEFAA18EAE4935BA723371 /* ._PlusJakartaSans-Bold.ttf in Resources */,
+				08B51AED71E94D859B490765 /* ._PlusJakartaSans-ExtraBold.ttf in Resources */,
+				5643C102AFA14AC89C40BED2 /* ._PlusJakartaSans-ExtraLight.ttf in Resources */,
+				3B8D74D3A22641AE9D3915E5 /* ._PlusJakartaSans-Light.ttf in Resources */,
+				05530F4292604D258A00CC72 /* ._PlusJakartaSans-Medium.ttf in Resources */,
+				1E9B49D0D7EA4D1AAF4661BA /* ._PlusJakartaSans-Regular.ttf in Resources */,
+				ADB60B7E6A9F45D497116EDC /* ._PlusJakartaSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
