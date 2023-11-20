@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 
 
 const Message = () => {
   const [contacts, setContacts] = useState([
-    { id: 1, name: 'Kontak 1', messages: [] },
-    { id: 2, name: 'Kontak 2', messages: [] },
+    { id: 1, name: 'Costumer Service 1', messages: [] },
+    { id: 2, name: 'Costumer Service 2', messages: [] },
     // Tambahkan lebih banyak kontak sesuai kebutuhan
   ]);
 
@@ -33,7 +33,7 @@ const Message = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Pesan</Text>
+        <Text style={styles.headerText}>Message</Text>
       </View>
       <View style={styles.contactList}>
         <ScrollView>
@@ -88,7 +88,7 @@ const Message = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'field',
   },
   header: {
     backgroundColor: 'red',
@@ -101,8 +101,9 @@ const styles = StyleSheet.create({
   },
   contactList: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'white',
     padding: 16,
+    flexDirection: 'row',
   },
   contactItem: {
     padding: 16,

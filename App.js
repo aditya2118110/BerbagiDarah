@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import Message from '../BerbagiDarah/src/screens/Message'
+import Home from '../BerbagiDarah/src/screens/Home'
 
 export default function App() {
   return (
-    <Message/>
+    <Home/>
   )
 }

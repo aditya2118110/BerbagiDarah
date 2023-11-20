@@ -1,6 +1,7 @@
-import Home from "./Home"
-import Profile from "./Profile"
-import Message from "./Message"
-import Event from "./Event"
+import Home from "./Home";
+import BlogDetail from "./BlogDetail";
+import Message from "./Message";
+import Event from "./Event";
+import Profile from "./Profile";
 
-export {Home, Message, ListBlog}
+export {Home, BlogDetail, Message, Event, Profile}
