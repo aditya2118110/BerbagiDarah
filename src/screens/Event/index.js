@@ -1,50 +1,75 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, Animated, ScrollView } from 'react-native';
 import { Home, Message, Profile, Star1 } from 'iconsax-react-native';
-
-import DonorCounter from '../../commponent/DonorCounter';
-import DonorRequirement from '../../commponent/DonorRequirement';
-import ListBlog from '../../ListBlog';
 import { fontType } from '../../theme';
+import ListEvent from '../../ListEvent';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('Event'); // Default page is 'Event'
+  const [scrollY] = useState(new Animated.Value(0));
+  const [showNotification, setShowNotification] = useState(false);
 
-  // const renderPage = () => {
-    // Render the appropriate component based on the currentPage state
-    // switch (currentPage) {
-    //   case 'Home':
-    //     return <Home />;
-    //   case 'Message':
-    //     return <Message />;
-    //   case 'Profile':
-    //     return <Profile />;
-    //   case 'Event':
-  //       return (
-  //         <ScrollView>
-  //           <ListBlog />
-  //         </ScrollView>
-  //       );
-  //     default:
-  //       return (
-  //         <ScrollView>
-  //           <View>
-  //             <ListBlog />
-  //           </View>
-  //         </ScrollView>
-  //       );
-  //   }
-  // };
+  const headerOpacity = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
+
+  const handleNewEvent = () => {
+    // Call this function when a new event is posted
+    setShowNotification(true);
+
+    // You can also set a timeout to hide the notification after a certain duration
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000); // Adjust the duration as needed
+  };
+
+  useEffect(() => {
+    // Example: Call handleNewEvent when a new event is posted
+    handleNewEvent();
+  }, []); // You may need to call this based on your app's logic
 
   return (
-    
-      
-      
-        
-           <ListBlog />
-        
-      
-    
+    <View style={{ flex: 1 }}>
+      <Animated.View
+        style={{
+          backgroundColor: 'red',
+          padding: 16,
+          alignItems: 'center',
+          opacity: headerOpacity,
+        }}
+      >
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Event</Text>
+      </Animated.View>
+
+      <ScrollView
+        style={{ flex: 1 }}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+          useNativeDriver: false,
+        })}
+        scrollEventThrottle={16}
+      >
+        {/* Rest of your components */}
+        <ListEvent />
+
+        {/* "New Event" notification */}
+        {showNotification && (
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: 40,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 10,
+              marginHorizontal: 20,
+              borderRadius: 20,
+            }}
+          >
+            <Text style={{ color: 'black' }}>New Event</Text>
+          </View>
+        )}
+      </ScrollView>
+    </View>
   );
 };
 const styles = StyleSheet.create({

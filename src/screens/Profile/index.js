@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import Iconsax from 'react-native-iconsax'; // Pastikan untuk mengimpor Iconsax
-
+import { ProfileCircle, ArrowRight2, ArrowDown2 } from 'iconsax-react-native';
 const Profile = ({ navigation }) => {
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>
@@ -14,7 +13,7 @@ const Profile = ({ navigation }) => {
       <View style={{ alignItems: 'center', marginVertical: 20 }}>
         {/* Icon Avatar (ProfileCircle-Linear) */}
         <TouchableOpacity onPress={() => console.log('Tampilkan Gambar Profil')}>
-          <Iconsax.ProfileCircleLinear size={80} color="red" />
+          <ProfileCircle size={80} color="red" />
         </TouchableOpacity>
 
         {/* Nama User */}
@@ -24,7 +23,7 @@ const Profile = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('EditProfile')}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 5 }}>
             <Text style={{ color: 'red', marginRight: 5 }}>Edit</Text>
-            <Iconsax.ArrowRightLinear size={20} color="red" />
+            <ArrowRight2 size={20} color="red" />
           </View>
         </TouchableOpacity>
       </View>
@@ -45,7 +44,7 @@ const Profile = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('HistoryDonor')}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
             <Text style={{ color: 'white', marginRight: 5 }}>History Donor</Text>
-            <Iconsax.ArrowRight2 size={20} color="white" />
+            <ArrowRight2 size={20} color="white" />
           </View>
         </TouchableOpacity>
       </View>
@@ -57,28 +56,24 @@ const Profile = ({ navigation }) => {
         <TouchableOpacity onPress={() => console.log('Tampilkan Deskripsi FQA')}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
             <Text style={{ color: 'white', marginRight: 5 }}>FQA 1</Text>
-            <Iconsax.ArrowDown2 size={20} color="white" />
+            <ArrowDown2 size={20} color="white" />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log('Tampilkan Deskripsi FQA')}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
+            <Text style={{ color: 'white', marginRight: 5 }}>FQA 1</Text>
+            <ArrowDown2 size={20} color="white" />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log('Tampilkan Deskripsi FQA')}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
+            <Text style={{ color: 'white', marginRight: 5 }}>FQA 1</Text>
+            <ArrowDown2 size={20} color="white" />
           </View>
         </TouchableOpacity>
         {/* Tambahkan FQA Containers lainnya sesuai kebutuhan */}
       </View>
 
-      {/* Bagian Bottom Navigation */}
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          backgroundColor: 'white',
-          paddingVertical: 10,
-          borderTopWidth: 1,
-          borderTopColor: '#ccc',
-        }}
-      >
-        <Iconsax.Home size={24} color="black" />
-        <Iconsax.Message size={24} color="black" />
-        <Iconsax.Star1 size={24} color="black" />
-        <Iconsax.Profile size={24} color="black" />
-      </View>
     </ScrollView>
   );
 };

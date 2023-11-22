@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { Receipt21, Like1, Message } from 'iconsax-react-native';
-import { colors } from '../src/theme';
+import { colors } from './theme';
 
-const ListBlog = () => {
+const ListEvent = () => {
   const [likes, setLikes] = useState(0);
   const [messages, setMessages] = useState(0);
   const [likeColor, setLikeColor] = useState('white');
@@ -97,13 +97,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: colors.white,
+    color: colors.black,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     padding: 10,
   },
   description: {
     fontSize: 16,
     margin: 10,
+    paddingHorizontal: 20,
+    textAlign: 'justify',
   },
   iconContainer: {
     flexDirection: 'row',
@@ -120,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListBlog;
+export default ListEvent;

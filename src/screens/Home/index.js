@@ -103,6 +103,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TextInput } from 'react-native';
 import { Receipt21 , Notification, HambergerMenu, SearchNormal1, RowHorizontal, Home as HomeIcon, Message, Profile, Star1} from 'iconsax-react-native';
 import { fontType } from '../../theme';
+import DonorCounter from '../../commponent/DonorCounter';
+import DonorRequirement from '../../commponent/DonorRequirement';
 
 export default function Home(){
   return (
@@ -124,7 +126,7 @@ export default function Home(){
       <View style={styles.container3}>
       <Text style={{color:'white', paddingTop: 20, paddingLeft: 20 ,}}>Mencari Donor</Text>
       <TextInput placeholder='Cari Lokasi' style={styles.container4}></TextInput>
-      <SearchNormal1 style={{color: 'black', marginTop: -32, marginLeft: 365}}></SearchNormal1>
+      <SearchNormal1 style={{color: 'black', marginTop: -32, marginLeft: 340}}></SearchNormal1>
       <View style={styles.container5}></View>
       <Text style={{color:'white', paddingTop: 5, paddingLeft: 20 ,}}>Golongan Darah</Text>
       <View style={styles.container6}>
@@ -155,14 +157,7 @@ export default function Home(){
       </View>
       <View style={styles.container8}></View>
       <View style={styles.container9}>
-      <Text style={{color:'black', paddingTop: 10, paddingLeft: 65,fontFamily: fontType['Pjs-Bold'], fontSize: 20}}>Cari</Text>
-      </View>
-      <View style={styles.container10}>
-      <HomeIcon style={{color: 'black', marginTop: 22, marginLeft: 30}}/>
-      <SearchNormal1 style={{color: 'black', marginTop: 22, marginLeft: 60}}></SearchNormal1>
-      <Message style={{color: 'black', marginTop: 22, marginLeft: 60}}></Message>
-      <Star1 style={{color: 'black', marginTop: 22, marginLeft: 70}}></Star1>
-      <Profile style={{color: 'black', marginTop: 22, marginLeft: 50}}></Profile>
+      <Text style={{color:'black', paddingTop: 10, paddingLeft: 50,fontFamily: fontType['Pjs-Bold'], fontSize: 20}}>Cari</Text>
       </View>
       </View>
       <DonorCounter donorCount={10} />
@@ -183,8 +178,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow'
   },
   container3:{
-    height: 1000,
-    marginTop: -5,
+    height: 1700,
+    marginTop: -120,
     backgroundColor: 'red',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
