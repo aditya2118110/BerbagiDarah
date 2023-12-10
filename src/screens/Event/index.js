@@ -1,35 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Animated, ScrollView,TouchableOpacity } from 'react-native';
+import React, { useState, useEffect,useCallback } from 'react';
+import { View, StyleSheet, Text, Animated, ScrollView,TouchableOpacity,ActivityIndicator } from 'react-native';
 import { Category2, Home, Message, Profile, Star1 } from 'iconsax-react-native';
 import { fontType } from '../../theme';
-import ListEvent from '../../ListEvent';
-import { useNavigation } from "@react-navigation/native";
-const App = () => {
+import axios from 'axios';
+import { useNavigation,useFocusEffect } from "@react-navigation/native";
+import Item from '../../commponent/Item';
+const Event = () => {
   const navigation = useNavigation();
   const [scrollY] = useState(new Animated.Value(0));
   const [showNotification, setShowNotification] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   const headerOpacity = scrollY.interpolate({
     inputRange: [0, 100],
     outputRange: [1, 0],
     extrapolate: 'clamp',
   });
-
-  const handleNewEvent = () => {
-    // Call this function when a new event is posted
-    setShowNotification(true);
-
-    // You can also set a timeout to hide the notification after a certain duration
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 3000); // Adjust the duration as needed
-  };
-
-  useEffect(() => {
-    // Example: Call handleNewEvent when a new event is posted
-    handleNewEvent();
-  }, []); // You may need to call this based on your app's logic
-
+  const [productData, setProductData] = useState([]);
+    const getDataProduct = async () => {
+      try {
+        const response = await axios.get(
+          'https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event',
+        );
+        setProductData(response.data);
+        setLoading(false)
+      } catch (error) {
+          console.error(error);
+      }
+    };
+    useFocusEffect(
+      useCallback(() => {
+        getDataProduct();
+      }, [])
+    );const [eventData, setEventData] = useState([]);
+    const [refreshing, setRefreshing] = useState(false);
+    const getDataEvent = async () => {
+      try {
+        const response = await axios.get(
+          'https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event',
+        );
+        setEventData(response.data);
+        setLoading(false)
+      } catch (error) {
+          console.error(error);
+      }
+    };
+    const onRefresh = useCallback(() => {
+      setRefreshing(true);
+      setTimeout(() => {
+        getDataEvent()
+        setRefreshing(false);
+      }, 1500);
+    }, []);
+  
+    useFocusEffect(
+      useCallback(() => {
+        getDataEvent();
+      }, [])
+    );
   return (
     <View style={{ flex: 1 }}>
       <Animated.View
@@ -51,7 +78,6 @@ const App = () => {
         scrollEventThrottle={16}
       >
         {/* Rest of your components */}
-        <ListEvent />
 
         {/* "New Event" notification */}
         {showNotification && (
@@ -69,6 +95,11 @@ const App = () => {
             <Text style={{ color: 'black' }}>New Event</Text>
           </View>
         )}
+        {loading ? (
+                <ActivityIndicator size={'large'} color={'black'}/>
+              ) : (
+                eventData.map((item, index) => <Item item={item} key={index}/>)
+              )}
       </ScrollView>
       <TouchableOpacity style={{padding: 20, position:'absolute', top: 740,right: 20, backgroundColor:'red',borderRadius: 50}} onPress={() => navigation.navigate("AddEvent")}>
         <Category2 size="29"  color="#F7F7F7" variant='Bold'/>
@@ -180,4 +211,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Event;

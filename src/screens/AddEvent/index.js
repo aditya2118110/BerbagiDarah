@@ -1,6 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { Setting,SearchNormal1,Notification, AddCircle,ChartCircle, ArrowLeft } from "iconsax-react-native";
 import React, { useState } from "react";
+import axios from 'axios';
+
 import {
     View,
     Text,
@@ -16,11 +18,33 @@ const AddEvent = () => {
         const [itemData, setitemData] = useState({
             title: "",
             description: "",
-            price: "",
             createdAt: '',
             totalLikes: 0,
             totalComments: 0,
         });
+        const handleUpload = async () => {
+            setLoading(true);
+            try {
+              await axios.post('https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event', {
+                  title: itemData.title,
+                  description: itemData.description,
+                  image,
+                  totalComments: itemData.totalComments,
+                  totalLikes: itemData.totalLikes,
+                  createdAt: new Date(),
+                })
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+              setLoading(false);
+              navigation.navigate('Event');
+            } catch (e) {
+              console.log(e);
+            }
+          };
         const handleChange = (key, value) => {
             setitemData({
             ...itemData,
@@ -71,7 +95,7 @@ const AddEvent = () => {
                     />
                 </View>
             </ScrollView>
-            <TouchableOpacity style={{paddingHorizontal: 60,backgroundColor: 'red',padding: 15, flexDirection: 'row',alignItems: 'center', gap: 12, marginHorizontal: 120, borderRadius: 14, position: 'absolute', top: 800,left:10}}>
+            <TouchableOpacity onPress={handleUpload} style={{paddingHorizontal: 60,backgroundColor: 'red',padding: 15, flexDirection: 'row',alignItems: 'center', gap: 12, marginHorizontal: 120, borderRadius: 14, position: 'absolute', top: 800,left:10}}>
                 <Text>Upload</Text>
             </TouchableOpacity>
         </View>
