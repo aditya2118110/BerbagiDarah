@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home, Event, Message as MessageScreen, Profile as ProfileScreen, EventDetail} from '../screens';
 import {Home2, Message, Star1, Profile} from 'iconsax-react-native'; 
 import { fontType, colors } from '../theme';
+import AddEvent from '../screens/AddEvent';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -105,6 +106,28 @@ const Router = () => {
           ...TransitionPresets.SlideFromRightIOS,
         }}
       />
+      <Stack.Screen
+        name="AddEvent"
+        component={AddEvent}
+        options={{
+          headerShown: false, 
+          animationEnabled: true,
+          animationTypeForReplace: 'pop',
+          gestureEnabled: true,
+          gestureDirection : 'horizontal',
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      />
+       {/* Tambahkan screen untuk EditProfile */}
+       {/* <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{
+          headerShown: false,
+          animationEnabled: true,
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      /> */}
     </Stack.Navigator>
   );
 };

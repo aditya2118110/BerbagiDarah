@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Animated, ScrollView } from 'react-native';
-import { Home, Message, Profile, Star1 } from 'iconsax-react-native';
+import { View, StyleSheet, Text, Animated, ScrollView,TouchableOpacity } from 'react-native';
+import { Category2, Home, Message, Profile, Star1 } from 'iconsax-react-native';
 import { fontType } from '../../theme';
 import ListEvent from '../../ListEvent';
-
+import { useNavigation } from "@react-navigation/native";
 const App = () => {
+  const navigation = useNavigation();
   const [scrollY] = useState(new Animated.Value(0));
   const [showNotification, setShowNotification] = useState(false);
 
@@ -69,6 +70,9 @@ const App = () => {
           </View>
         )}
       </ScrollView>
+      <TouchableOpacity style={{padding: 20, position:'absolute', top: 740,right: 20, backgroundColor:'red',borderRadius: 50}} onPress={() => navigation.navigate("AddEvent")}>
+        <Category2 size="29"  color="#F7F7F7" variant='Bold'/>
+    </TouchableOpacity>
     </View>
   );
 };

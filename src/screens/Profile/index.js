@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { ProfileCircle, ArrowRight2, ArrowDown2 } from 'iconsax-react-native';
+
 const Profile = ({ navigation }) => {
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>
@@ -20,12 +21,12 @@ const Profile = ({ navigation }) => {
         <Text style={{ fontSize: 18, fontWeight: 'bold', marginTop: 10 }}>Nama User</Text>
 
         {/* Edit dan Navigasi ke Halaman Edit */}
-        <TouchableOpacity onPress={() => navigation.navigate('EditProfile')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('EditProfile')}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 5 }}>
             <Text style={{ color: 'red', marginRight: 5 }}>Edit</Text>
             <ArrowRight2 size={20} color="red" />
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       {/* Bagian Kartu Donor */}
