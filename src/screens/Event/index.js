@@ -1,8 +1,8 @@
 import React, { useState, useEffect,useCallback } from 'react';
-import { View, StyleSheet, Text, Animated, ScrollView,TouchableOpacity,ActivityIndicator } from 'react-native';
+import { View, StyleSheet, Text, Animated, ScrollView,TouchableOpacity,ActivityIndicator,RefreshControl } from 'react-native';
 import { Category2, Home, Message, Profile, Star1 } from 'iconsax-react-native';
 import { fontType } from '../../theme';
-import axios from 'axios';
+import firestore from '@react-native-firebase/firestore';
 import { useNavigation,useFocusEffect } from "@react-navigation/native";
 import Item from '../../commponent/Item';
 const Event = () => {
@@ -16,47 +16,42 @@ const Event = () => {
     extrapolate: 'clamp',
   });
   const [productData, setProductData] = useState([]);
-    const getDataProduct = async () => {
-      try {
-        const response = await axios.get(
-          'https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event',
-        );
-        setProductData(response.data);
-        setLoading(false)
-      } catch (error) {
-          console.error(error);
-      }
-    };
-    useFocusEffect(
-      useCallback(() => {
-        getDataProduct();
-      }, [])
-    );const [eventData, setEventData] = useState([]);
-    const [refreshing, setRefreshing] = useState(false);
-    const getDataEvent = async () => {
-      try {
-        const response = await axios.get(
-          'https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event',
-        );
-        setEventData(response.data);
-        setLoading(false)
-      } catch (error) {
-          console.error(error);
-      }
-    };
-    const onRefresh = useCallback(() => {
-      setRefreshing(true);
-      setTimeout(() => {
-        getDataEvent()
-        setRefreshing(false);
-      }, 1500);
-    }, []);
-  
-    useFocusEffect(
-      useCallback(() => {
-        getDataEvent();
-      }, [])
-    );
+  const [refreshing, setRefreshing] = useState(false);
+  useEffect(() => {
+    const subscriber = firestore()
+      .collection('blog')
+      .onSnapshot(querySnapshot => {
+        const events = [];
+        querySnapshot.forEach(documentSnapshot => {
+          events.push({
+            ...documentSnapshot.data(),
+            id: documentSnapshot.id,
+          });
+        });
+        setProductData(events);
+        setLoading(false);
+      });
+    return () => subscriber();
+  }, []);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      firestore()
+        .collection('blog')
+        .onSnapshot(querySnapshot => {
+          const events = [];
+          querySnapshot.forEach(documentSnapshot => {
+            events.push({
+              ...documentSnapshot.data(),
+              id: documentSnapshot.id,
+            });
+          });
+          setProductData(events);
+        });
+      setRefreshing(false);
+    }, 1500);
+  }, []);
   return (
     <View style={{ flex: 1 }}>
       <Animated.View
@@ -76,7 +71,9 @@ const Event = () => {
           useNativeDriver: false,
         })}
         scrollEventThrottle={16}
-      >
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         {/* Rest of your components */}
 
         {/* "New Event" notification */}
@@ -98,7 +95,7 @@ const Event = () => {
         {loading ? (
                 <ActivityIndicator size={'large'} color={'black'}/>
               ) : (
-                eventData.map((item, index) => <Item item={item} key={index}/>)
+                productData.map((item, index) => <Item item={item} key={index}/>)
               )}
       </ScrollView>
       <TouchableOpacity style={{padding: 20, position:'absolute', top: 740,right: 20, backgroundColor:'red',borderRadius: 50}} onPress={() => navigation.navigate("AddEvent")}>

@@ -2,8 +2,9 @@ import {ArrowLeft, Like1, Receipt21, Message, Share, More} from 'iconsax-react-n
 import {useNavigation} from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import { StyleSheet, Text, View,Image, ScrollView, Animated,TouchableOpacity,ActivityIndicator,Modal  } from 'react-native'
-import React, {useState,useRef,useEffect} from 'react'
-import axios from 'axios';
+import firestore from '@react-native-firebase/firestore';
+import storage from '@react-native-firebase/storage';
+import React, { useState, useEffect,useRef } from 'react';
 import { fontType } from '../../theme';
 import {formatNumber} from '../../utils/formatNumber';
 import {formatDate} from '../../utils/formatDate';
@@ -27,35 +28,49 @@ const DetailItem = ({route}) => {
     };
 
     useEffect(() => {
-        getDataById();
+      const subscriber = firestore()
+        .collection('blog')
+        .doc(eventId)
+        .onSnapshot(documentSnapshot => {
+          const events = documentSnapshot.data();
+          if (events) {
+            console.log('Event data: ', events);
+            setSelectedData(events);
+          } else {
+            console.log(`Event with ID ${eventId} not found.`);
+          }
+        });
+      setLoading(false);
+      return () => subscriber();
     }, [eventId]);
-
-    const getDataById = async () => {
-        try {
-        const response = await axios.get(
-            `https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event/${eventId}`,
-        );
-        setSelectedData(response.data);
-        setLoading(false);
-        } catch (error) {
-        console.error(error);
-        }
-    };
 
     const navigateEdit = () => {
         closeActionSheet()
         navigation.navigate('EventEdit', {eventId})
     }
     const handleDelete = async () => {
-    await axios.delete(`https://657576cdb2fbb8f6509d1cc2.mockapi.io/berbagidarah/event/${eventId}`)
-        .then(() => {
-            closeActionSheet()
-            navigation.navigate('Event');
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
+      setLoading(true);
+      try {
+        await firestore()
+          .collection('blog')
+          .doc(eventId)
+          .delete()
+          .then(() => {
+            console.log('Event deleted!');
+          });
+        if (selectedData?.image) {
+          const imageRef = storage().refFromURL(selectedData?.image);
+          await imageRef.delete();
+        }
+        console.log('Blog deleted!');
+        closeActionSheet();
+        setSelectedData(null);
+        setLoading(false)
+        navigation.navigate('Event');
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     const navigation = useNavigation();
     const scrollY = useRef(new Animated.Value(0)).current;
@@ -119,9 +134,6 @@ const DetailItem = ({route}) => {
         </View>
         <View style={{padding: 20}}>
             <Text style={{fontFamily: fontType['Pjs-Light'],fontSize: 18,color: 'black'}}>{selectedData?.description}</Text>
-        </View>
-        <View style={{padding: 20, alignItems: 'center', backgroundColor: '#7A9EFF', marginHorizontal: 16, borderRadius: 20}}>
-            <Text  style={{fontFamily: fontType['NS-SemiBold'],fontSize: 15,color: 'white'}}>Buy Now</Text>
         </View>
     </ScrollView>
     )}
@@ -231,7 +243,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     left: 0,
-    backgroundColor: 'white',
+    backgroundColor: 'red',
   },
   bottomBar: {
     position: 'absolute',
